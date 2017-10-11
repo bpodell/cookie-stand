@@ -1,0 +1,16 @@
+body {
+  background-color: blue;
+}
+
+.highlights {
+  font-family: 'Merriweather', serif;
+  color: green;
+}
+.data {
+  font-family: verdana,sans-serif;
+  color: blue;
+}
+.text {
+  font-family: times, serif;
+  color: red;
+}
