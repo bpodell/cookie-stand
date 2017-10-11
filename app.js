@@ -4,13 +4,22 @@ var firstAndPike = {
   minCust: 23,
   maxCust: 65,
   avgCookies: 6.3,
-  randomAvg: function(minCust, maxCust){
-    min = Math.ceil(this.minCust * this.avgCookies);
-    max = Math.floor(this.maxCust * this.avgCookies);
-    console.log('the min ' + min);
-    console.log('the max ' + max);
-    console.log(this.minCust);
-    console.log(this.maxCust);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  emptyArray: [],
+  randomCust: function(){
+    var avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
+    return avgCust;
+  },
+  cookiesHour: function(){
+    for (var i = 0; i < 15; i++) {
+      this.emptyArray.push(Math.round(this.randomAvg() * this.avgCookies))
+      ;
+    }
+  },
+  totalCookies: function() {
+    var total = 0;
+    for (var i = 0; i < this.emptyArray.length; i++) {
+      total += this.emptyArray[i];
+    }
+    return total;
   }
 };
