@@ -1,14 +1,14 @@
 body {
-  background-color: blue;
+  background-color: rgb(26, 140, 255);
 }
 
-.highlights {
+h3 {
   font-family: 'Merriweather', serif;
-  color: green;
+  color: orange;
 }
-.data {
+ul {
   font-family: verdana,sans-serif;
-  color: blue;
+  color: black;
 }
 .text {
   font-family: times, serif;
@@ -22,3 +22,13 @@ table{
 th
 
 td
+.firstandpikeh3 {
+  float: left;
+  margin: 20px;
+  border-radius: 25px;
+  max-width: 1920px;
+  width: 25%;
+  height:auto;
+  background: rgba(240, 240, 240, 0.8);
+  padding: 20px;
+}
