@@ -1,6 +1,6 @@
 'use strict';
 
-var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm',];
+var hours = ['6 a.m.','7 a.m.','8 a.m.','9 a.m.','10 a.m.','11 a.m.','12 p.m.','1 p.m.','2 p.m.','3 p.m.','4 p.m.','5 p.m.','6 p.m.','7 p.m.','8 p.m.',];
 
 var firstAndPike = {
   name: 'First and Pike',
@@ -8,7 +8,7 @@ var firstAndPike = {
   maxCust: 65,
   avgCookies: 6.3,
   cookiesSoldArray: [],
-  //added this in during demo
+
   randomCust: function(){
     var avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
     return avgCust;
@@ -59,7 +59,7 @@ var seaTacAirport = {
   maxCust: 24,
   avgCookies: 1.2,
   cookiesSoldArray: [],
-  //added this in during demo
+
   randomCust: function(){
     var avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
     return avgCust;
