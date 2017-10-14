@@ -8,7 +8,7 @@ var firstAndPike = {
   maxCust: 65,
   avgCookies: 6.3,
   cookiesSoldArray: [],
-  //added this in during demo
+
   randomCust: function(){
     var avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
     return avgCust;
@@ -59,7 +59,7 @@ var seaTacAirport = {
   maxCust: 24,
   avgCookies: 1.2,
   cookiesSoldArray: [],
-  //added this in during demo
+
   randomCust: function(){
     var avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
     return avgCust;
