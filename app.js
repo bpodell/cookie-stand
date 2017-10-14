@@ -79,18 +79,30 @@ makeTableDataRow();
 
 function makeTableFooter() {
   var trEl = document.createElement('tr');
-  for (var i = -1; i < allLocations[0].cookiesSoldArray.length - 1; i++) {
+  trEl.className = 'tablefooter';
+  for (var i = -1; i <= allLocations[0].cookiesSoldArray.length - 1; i++) {
     var sumTotal = 0;
     var tdEl = document.createElement('td');
     if (i === -1) {
       tdEl.textContent = 'Total';
-    } else {
+    } else if ( i === allLocations[0].cookiesSoldArray.length - 1) {
+      var totTotal = 0;
+      for(var k = 0; k < allLocations.length; k ++) {
+        totTotal += allLocations[k].totalCookies();
+      }
+      tdEl.textContent = totTotal;
+      console.log('the value ' + tdEl);
+      trEl.appendChild(tdEl);
+    }
+    else {
       for (var j = 0; j < allLocations.length; j++) {
         sumTotal += allLocations[j].cookiesSoldArray[i];
         console.log(sumTotal);}
       tdEl.textContent = sumTotal;}
+    console.log(i);
     console.log(tdEl);
     console.log(trEl);
+    console.log(allLocations[0].cookiesSoldArray.length);
     trEl.appendChild(tdEl);
   }
   cookiestable.appendChild(trEl);
