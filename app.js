@@ -1,5 +1,6 @@
 'use strict';
 
+
 var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','Total',];
 
 var allLocations = [];
@@ -11,6 +12,7 @@ function MakeLocation(name, minCust, maxCust, avgCookies) {
   this.cookiesSoldArray = [];
   allLocations.push(this);
   this.randomCust = function(){
+
     var avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
     return avgCust;
   };
@@ -31,12 +33,14 @@ function MakeLocation(name, minCust, maxCust, avgCookies) {
   this.cookiesHour();
   this.totalCookies();
 };
+
 function makeStands() {
   new MakeLocation('First and Pike', 23, 65, 6.3);
   new MakeLocation('SeaTac Airport', 3, 24, 1.2);
   new MakeLocation('Seattle Center', 11, 38, 3.7);
   new MakeLocation('Captiol Hill', 20, 38, 2.3);
   new MakeLocation('Alki', 2, 16, 4.6);
+
 };
 makeStands();
 
