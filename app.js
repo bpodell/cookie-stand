@@ -1,6 +1,6 @@
 // 'use strict';
 //
-var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm',];
+var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','Total',];
 //
 // var firstAndPike = {
 //   name: 'First and Pike',
@@ -251,7 +251,6 @@ var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm
 // alki.render();
 var allLocations = [];
 function MakeLocation(name, minCust, maxCust, avgCookies) {
-  console.log('do i even work?');
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -306,12 +305,15 @@ function makeHeaderRow() {
 makeHeaderRow();
 
 function makeTableDataRow() {
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 5; i++) {
     var trEl = document.createElement('tr');
-    for (var k = -1; k < 16; k++) {
+    for (var k = -1; k < 15; k++) {
       var tdEl = document.createElement('td');
       if (k === -1) {
         tdEl.textContent = allLocations[i].name;
+        trEl.appendChild(tdEl);
+      } else if (k === 14) {
+        tdEl.textContent = allLocations[i].totalCookies();
         trEl.appendChild(tdEl);
       } else {
         tdEl.textContent = allLocations[i].cookiesSoldArray[k];
@@ -321,4 +323,24 @@ function makeTableDataRow() {
   }
 }
 makeTableDataRow();
-console.log(allLocations);
+
+function makeTableFooter() {
+  var trEl = document.createElement('tr');
+  for (var i = -1; i < allLocations[0].cookiesSoldArray.length - 1; i++) {
+    var sumTotal = 0;
+    var tdEl = document.createElement('td');
+    if (i === -1) {
+      tdEl.textContent = 'Total';
+    } else {
+      for (var j = 0; j < allLocations.length; j++) {
+        sumTotal += allLocations[j].cookiesSoldArray[i];
+        console.log(sumTotal);}
+      tdEl.textContent = sumTotal;}
+    console.log(tdEl);
+    console.log(trEl);
+    trEl.appendChild(tdEl);
+  }
+  cookiestable.appendChild(trEl);
+}
+
+makeTableFooter();
