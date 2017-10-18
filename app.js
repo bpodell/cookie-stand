@@ -81,7 +81,7 @@ console.log(hours.length);
 
 function makeTableFooter() {
   var trEl = document.createElement('tr');
-  trEl.className = 'tablefooter';
+  trEl.id = 'tablefooter';
   var tdEl = document.createElement('td');
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
@@ -119,7 +119,7 @@ function newLocationSubmit(event) {
   var maximumCust = parseInt(event.target.maxcust.value);
   var averageCust = parseInt(event.target.avgcookies.value);
   new MakeLocation(storename, minimumCust, maximumCust, averageCust);
-  document.getElementsByClassName('tablefooter').deleteRow();
+  document.getElementById('cookiestable').deleteRow(allLocations.length + 2);
   event.target.storename.value = null;
   event.target.mincust.value = null;
   event.target.maxcust.value = null;
