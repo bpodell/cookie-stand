@@ -47,11 +47,12 @@ function makeHeaderRow() {
   var thEl = document.createElement('th');
   thEl.textContent = '';
   trEl.appendChild(thEl);
-  for (var i = 0; i <= hours.length; i++) {
+  for (var i = 0; i < hours.length; i++) {
     var thEl = document.createElement('th');
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
+  var thEl = document.createElement('th');
   thEl.textContent = 'Total';
   trEl.appendChild(thEl);
   cookiestable.appendChild(trEl);
@@ -64,12 +65,12 @@ function makeTableDataRow() {
     var tdEl = document.createElement('td');
     tdEl.textContent = allLocations[i].name;
     trEl.appendChild(tdEl);
-    for (var k = 0; k <= hours.length; k++) {
+    for (var k = 0; k < hours.length; k++) {
       var tdEl = document.createElement('td');
       tdEl.textContent = allLocations[i].cookiesSoldArray[k];
       trEl.appendChild(tdEl);
     }
-    var tdEL = document.createElement('td');
+    var tdEl = document.createElement('td');
     tdEl.textContent = allLocations[i].totalCookies();
     trEl.appendChild(tdEl);
     cookiestable.appendChild(trEl);
@@ -83,7 +84,7 @@ function makeTableFooter() {
   var tdEl = document.createElement('td');
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
-  for (var i = 0; i <= hours.length; i++) {
+  for (var i = 0; i < hours.length; i++) {
     var sumTotal = 0;
     var tdEl = document.createElement('td');
     for (var j = 0; j < allLocations.length; j++) {
@@ -96,6 +97,7 @@ function makeTableFooter() {
   for(var k = 0; k < allLocations.length; k ++) {
     totTotal += allLocations[k].totalCookies();
   }
+  var tdEl = document.createElement('td');
   tdEl.textContent = totTotal;
   trEl.appendChild(tdEl);
   cookiestable.appendChild(trEl);
