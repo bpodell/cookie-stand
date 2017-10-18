@@ -105,6 +105,7 @@ function makeTableFooter() {
 }
 
 makeTableFooter();
+
 var storeForm = document.getElementById('store-form');
 function newLocationSubmit(event) {
   console.log(event);
@@ -118,15 +119,11 @@ function newLocationSubmit(event) {
   var maximumCust = parseInt(event.target.maxcust.value);
   var averageCust = parseInt(event.target.avgcookies.value);
   new MakeLocation(storename, minimumCust, maximumCust, averageCust);
-
+  document.getElementsByClassName('tablefooter').deleteRow();
   event.target.storename.value = null;
   event.target.mincust.value = null;
   event.target.maxcust.value = null;
   event.target.avgcookies.value = null;
-  console.log(allLocations[5]);
-  document.getElementById('cookiestable').reset();
-  makeHeaderRow();
-  makeTableDataRow();
   makeTableFooter();
 };
 
