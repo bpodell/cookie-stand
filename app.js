@@ -77,8 +77,6 @@ function makeStands() {
 };
 makeStands();
 
-console.log(hours.length);
-
 function makeTableFooter() {
   var trEl = document.createElement('tr');
   trEl.id = 'tablefooter';
