@@ -12,7 +12,6 @@ function makeHeaderRow() {
   trEl.appendChild(thEl);
   for (var i = 0; i < hours.length; i++) {
     var thEl = document.createElement('th');
-    console.log(hours[i]);
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
@@ -72,7 +71,7 @@ function makeStands() {
   new MakeLocation('First and Pike', 23, 65, 6.3);
   new MakeLocation('SeaTac Airport', 3, 24, 1.2);
   new MakeLocation('Seattle Center', 11, 38, 3.7);
-  new MakeLocation('Captiol Hill', 20, 38, 2.3);
+  new MakeLocation('Capitol Hill', 20, 38, 2.3);
   new MakeLocation('Alki', 2, 16, 4.6);
 };
 makeStands();
@@ -116,8 +115,19 @@ function newLocationSubmit(event) {
   var minimumCust = parseInt(event.target.mincust.value);
   var maximumCust = parseInt(event.target.maxcust.value);
   var averageCust = parseInt(event.target.avgcookies.value);
-  new MakeLocation(storename, minimumCust, maximumCust, averageCust);
-  document.getElementById('cookiestable').deleteRow(allLocations.length + 2);
+  for (var i = 0; i < allLocations.length; i++) {
+    if (storename === allLocations[i].name) {
+      document.getElementById('cookiestable').deleteRow(allLocations.length + 3);//deletes the footer
+      document.getElementById('cookiestable').deleteRow(i + 3);//deletes the old object row
+      allLocations.splice(i, 1);
+      new MakeLocation(storename, minimumCust, maximumCust, averageCust);
+      break;
+    } else if (i === allLocations.length - 1){
+      document.getElementById('cookiestable').deleteRow(allLocations.length + 3);
+      new MakeLocation(storename, minimumCust, maximumCust, averageCust);
+      break;
+    }
+  }
   event.target.storename.value = null;
   event.target.mincust.value = null;
   event.target.maxcust.value = null;
