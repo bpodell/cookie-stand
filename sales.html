@@ -8,9 +8,29 @@
   </head>
   <body>
     <h1>Pat's Salmon Cookies</h1>
-    <table id="cookiestable"></table>
+    <form id="store-form">
+          <fieldset>
+            <legend>Add Store Location</legend>
+              <label for="storename">Name of Location:</label>
+              <input type="text" name="storename" />
+              <br>
+              <label for="mincust">Minimum customers:</label>
+              <input type="text" name="mincust" />
+              <br>
+              <label for="maxcust">Maximum customers:</label>
+              <input type="text" name="maxcust" />
+              <br>
+              <label for="avgcookies">Average cookies:</label>
+              <input type="text" name="avgcookies" />
+              <br>
+              <button type="submit" name="button" id='createButton'>Create a new store</button>
+          </fieldset>
+      </form>
+    <table id="cookiestable">
+      <tr id='tFooter'><tr>
+    </table>
     <footer>
-      <p><img src="img/salmon.png" alt="sexy salmon" style="width:250px;height:70px"></p>
+      <p><img src="img/salmon.png" alt="salmon" style="width:250px;height:70px"></p>
       <p>Open 7 days a week: 6 a.m. - 8 p.m.</p>
       <p><a href="index.html">
       Home</a> <a href="locations.html"> Locations</p>

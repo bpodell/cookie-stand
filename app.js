@@ -3,6 +3,26 @@
 var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
 var allLocations = [];
+var cookiestable = document.getElementById('cookiestable');
+
+function makeHeaderRow() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = '';
+  trEl.appendChild(thEl);
+  for (var i = 0; i < hours.length; i++) {
+    var thEl = document.createElement('th');
+    console.log(hours[i]);
+    thEl.textContent = hours[i];
+    trEl.appendChild(thEl);
+  }
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Total';
+  trEl.appendChild(thEl);
+  cookiestable.appendChild(trEl);
+};
+makeHeaderRow();
+
 function MakeLocation(name, minCust, maxCust, avgCookies) {
   this.name = name;
   this.minCust = minCust;
@@ -30,6 +50,23 @@ function MakeLocation(name, minCust, maxCust, avgCookies) {
   this.randomCust();
   this.cookiesHour();
   this.totalCookies();
+  this.render = function() {
+    var cookiestable = document.getElementById('cookiestable');
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.name;
+    trEl.appendChild(tdEl);
+    for (var k = 0; k < hours.length; k++) {
+      var tdEl = document.createElement('td');
+      tdEl.textContent = this.cookiesSoldArray[k];
+      trEl.appendChild(tdEl);
+    }
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.totalCookies();
+    trEl.appendChild(tdEl);
+    cookiestable.appendChild(trEl);
+  };
+  this.render();
 };
 function makeStands() {
   new MakeLocation('First and Pike', 23, 65, 6.3);
@@ -40,47 +77,9 @@ function makeStands() {
 };
 makeStands();
 
-var cookiestable = document.getElementById('cookiestable');
-
-function makeHeaderRow() {
-  var trEl = document.createElement('tr');
-  var thEl = document.createElement('th');
-  thEl.textContent = '';
-  trEl.appendChild(thEl);
-  for (var i = 0; i < hours.length; i++) {
-    var thEl = document.createElement('th');
-    thEl.textContent = hours[i];
-    trEl.appendChild(thEl);
-  }
-  var thEl = document.createElement('th');
-  thEl.textContent = 'Total';
-  trEl.appendChild(thEl);
-  cookiestable.appendChild(trEl);
-};
-makeHeaderRow();
-console.log(hours.length);
-function makeTableDataRow() {
-  for (var i = 0; i < allLocations.length; i++) {
-    var trEl = document.createElement('tr');
-    var tdEl = document.createElement('td');
-    tdEl.textContent = allLocations[i].name;
-    trEl.appendChild(tdEl);
-    for (var k = 0; k < hours.length; k++) {
-      var tdEl = document.createElement('td');
-      tdEl.textContent = allLocations[i].cookiesSoldArray[k];
-      trEl.appendChild(tdEl);
-    }
-    var tdEl = document.createElement('td');
-    tdEl.textContent = allLocations[i].totalCookies();
-    trEl.appendChild(tdEl);
-    cookiestable.appendChild(trEl);
-  }
-}
-makeTableDataRow();
-
 function makeTableFooter() {
   var trEl = document.createElement('tr');
-  trEl.className = 'tablefooter';
+  trEl.id = 'tablefooter';
   var tdEl = document.createElement('td');
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
@@ -104,3 +103,26 @@ function makeTableFooter() {
 }
 
 makeTableFooter();
+
+var storeForm = document.getElementById('store-form');
+function newLocationSubmit(event) {
+  console.log(event);
+  event.preventDefault();
+  console.log(event.target.maxcust.value);
+  if (!event.target.storename.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcookies.value) {
+    return alert('Fields cannot be empty!');
+  }
+  var storename = event.target.storename.value;
+  var minimumCust = parseInt(event.target.mincust.value);
+  var maximumCust = parseInt(event.target.maxcust.value);
+  var averageCust = parseInt(event.target.avgcookies.value);
+  new MakeLocation(storename, minimumCust, maximumCust, averageCust);
+  document.getElementById('cookiestable').deleteRow(allLocations.length + 2);
+  event.target.storename.value = null;
+  event.target.mincust.value = null;
+  event.target.maxcust.value = null;
+  event.target.avgcookies.value = null;
+  makeTableFooter();
+};
+
+storeForm.addEventListener('submit', newLocationSubmit);
