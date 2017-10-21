@@ -111,11 +111,11 @@ footer {
   width: 250px;
   height: 100px;
 }
-button#createButton:hover {
+button.createButton:hover {
   background-color: rgb(255, 234, 133);
   color: rgb(105, 191, 199);
 }
-button#createButton {
+button.createButton {
     color: rgb(255, 234, 133);
     background-color: rgb(105, 191, 199);
     border: none;
@@ -123,7 +123,7 @@ button#createButton {
     text-decoration: none;
     margin: 4px 2px;
 }
-button#createButton:active {
+button.createButton:active {
   border: solid black;
 }
 
