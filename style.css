@@ -21,23 +21,42 @@ h2{
   font-size: 80px;
 }
 
+.divcontainer{
+  display: inline-block;
+  width: 100%;
+}
+.indeximages{
+  width: 100%;
+}
+
+.merchimages{
+  width:250px;
+  height: 300px;
+}
 .merch {
   width: 48%;
   border:2px solid gray;
   border-radius: 6px;
-  float: left;
   margin: 1%;
   text-align: center;
+  float: left;
 }
-.links {
+.merch:hover{
+  border: 2px solid salmon;
+}
+.clearmerch {
   width: 48%;
   border:2px solid gray;
   border-radius: 6px;
-  float: left;
-  margin: 1%;
+  margin: auto;
   text-align: center;
+  max-width: 300px;
+  max-height: 400px;
+  overflow: hidden;
 }
-
+.clearmerch:hover{
+  border: 2px solid salmon;
+}
 th, td {
     padding: 15px;
     text-align: right;
@@ -86,7 +105,7 @@ button#createButton:active {
 .locationstext {
   text-align: center;
 }
-#backgroundimage{
+.backgroundimage{
   padding: 0;
   display: block;
   margin: 0 auto;
