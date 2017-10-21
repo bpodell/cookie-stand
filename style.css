@@ -59,10 +59,25 @@ h2{
   margin: auto;
   text-align: center;
   max-width: 350px;
+  padding-left: 50px;
+  padding-right: 50px;
   /*max-height: 400px;*/
   overflow: hidden;
 }
 .clearmerch:hover{
+  border: 2px solid salmon;
+}
+.clearindex {
+  width: 48%;
+  border:2px solid gray;
+  border-radius: 6px;
+  margin: auto;
+  text-align: center;
+  max-width: 350px;
+  /*max-height: 400px;*/
+  overflow: hidden;
+}
+.clearindex:hover{
   border: 2px solid salmon;
 }
 th, td {
@@ -92,7 +107,10 @@ footer {
   font-size: 20px;
   width: 100%;
 }
-
+.salmonpicture {
+  width: 250px;
+  height: 100px;
+}
 button#createButton:hover {
   background-color: rgb(255, 234, 133);
   color: rgb(105, 191, 199);
@@ -109,7 +127,7 @@ button#createButton:active {
   border: solid black;
 }
 
-.googlemap{
+.googlemap {
   display: block;
   margin:auto;
 }
