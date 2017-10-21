@@ -19,8 +19,12 @@ h1 {
 h2{
   text-align: center;
   font-size: 80px;
+  font-family: 'Lobster', cursive;
+  color: salmon;
 }
-
+.familyphoto{
+  margin-left: 18%;
+}
 .divcontainer{
   display: inline-block;
   width: 100%;
@@ -28,7 +32,11 @@ h2{
 .indeximages{
   width: 100%;
 }
-
+.aboutusparagraph{
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .merchimages{
   width:250px;
   height: 300px;
@@ -50,8 +58,8 @@ h2{
   border-radius: 6px;
   margin: auto;
   text-align: center;
-  max-width: 300px;
-  max-height: 400px;
+  max-width: 350px;
+  /*max-height: 400px;*/
   overflow: hidden;
 }
 .clearmerch:hover{
@@ -101,7 +109,10 @@ button#createButton:active {
   border: solid black;
 }
 
-
+.googlemap{
+  display: block;
+  margin:auto;
+}
 .locationstext {
   text-align: center;
 }
